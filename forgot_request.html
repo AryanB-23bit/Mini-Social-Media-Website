@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="" method="post" novalidate>
+        {{form.hidden_tag()}}
+        <h1>Request Password Reset</h1>
+        <h2>Enter in the email that you used during account creation for a reset password link.</h2>
+        <p>
+            {{form.email.label}}<br>
+            {{form.email(size=64)}}
+        </p>
+        <p>{{form.submit()}}</p>
+    </form>
+
+     {% for msg in get_flashed_messages() %}
+      <h1>{{ msg }}</h1>
+      {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "formhelper.html" import render_field %}
+{% block content %}
+        <h2 style="text-align: center">Create Topic</h2>
+        <form action="" method="post" novalidate class="container" style="text-align: center">
+        {{form.hidden_tag()}}
+        <p>
+            {{render_field(form.title)}}
+        </p>
+        <p>
+            {{render_field(form.description)}}
+        </p>
+
+        <p> {{form.submit()}}</p>
+        </form>
+{% endblock %}

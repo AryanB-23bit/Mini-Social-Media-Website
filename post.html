@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% from "formhelper.html" import render_field %}
+
+{% block content %}
+
+  <div class="container" style="background-color:white;width:550px;padding-top:10px;padding-bottom:8px; border-bottom-style: solid; border-bottom-color: #e6ffe6">
+  {% for post in posts %}
+
+
+
+  <a href="/profile/{{post.username}}">{{post.username}}</a>
+  <div>{{post.date}}</div>
+
+  <div style="word-wrap:break-word;">{{post.post_content}}</div>
+
+
+  {% endfor %}
+
+  <form action="" method="post" novalidate class="container" style="text-align: center">
+    {{form.hidden_tag()}}
+    <p>
+      {{render_field(form.content)}}
+
+    </p>
+    <p>{{form.submit()}}</p>
+  </form>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+{% endblock %}

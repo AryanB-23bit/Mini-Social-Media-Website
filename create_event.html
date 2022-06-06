@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "formhelper.html" import render_field %}
+
+{% block content %}
+    <div class="container" style="text-align: center">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <p>{{message}}</p>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    {% if (current_user.role=='admin') %}
+        <h2 style="text-align: center">Create Event</h2>
+        <form action="" method="post" novalidate style="text-align: center">
+                {{form.hidden_tag()}}
+            <p style="text-align: center">
+                {{render_field(form.event_name)}}
+
+            </p>
+
+            <p>
+    	        {{render_field(form.event_date)}}
+            </p>
+
+            <p>
+                {{render_field(form.description)}}
+            </p>
+            <p>{{form.submit}}</p>
+        </form>
+
+        {% endif %}
+{% endblock %}
+
+</div>

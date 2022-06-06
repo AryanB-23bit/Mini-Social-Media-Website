@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="" method="post">
+        {{form.hidden_tag()}}
+        <h1>Change Email</h1>
+        <h2>Enter in the new email down below.</h2>
+        <p>
+            {{form.email.label}}<br>
+            {{form.email(size=64)}}
+        </p>
+
+        <p>
+            {{form.confirmEm.label}}<br>
+            {{form.confirmEm(size=64)}}
+        </p>
+        <p>{{form.submit()}}</p>
+    </form>
+
+     {% for msg in get_flashed_messages() %}
+      <h1>{{ msg }}</h1>
+      {% endfor %}
+
+{% endblock %}
